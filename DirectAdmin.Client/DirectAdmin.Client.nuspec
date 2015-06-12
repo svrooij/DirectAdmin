@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Stephan van Rooij</authors>
+    <owners>Fontys Hogeschool ICT</owners>
+    <licenseUrl>https://github.com/svrooij/DirectAdmin/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/svrooij/DirectAdmin</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>Tag1 Tag2</tags>
+  </metadata>
+</package>
