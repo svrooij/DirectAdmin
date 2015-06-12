@@ -20,6 +20,7 @@ namespace DirectAdmin.Client
         #region Url constants
         const string SetPasswordUrl = "CMD_API_USER_PASSWD";
         const string CreateUserUrl = "CMD_API_ACCOUNT_USER";
+        const string ShowAllUsersUrl = "CMD_API_SHOW_ALL_USERS";
         #endregion
 
         #region Client methodes
@@ -46,6 +47,28 @@ namespace DirectAdmin.Client
         {
             var response = await client.PostAsync(CreateUserUrl, new FormUrlEncodedContent(userOptions.GetRequestData()));
             await CheckResponse(response);
+        }
+        /// <summary>
+        /// Fetch a list of all users
+        /// </summary>
+        /// <returns>List of usernames</returns>
+        public async Task<List<string>> ListUsers()
+        {
+            var result = new List<string>();
+            var responseString = await client.GetStringAsync(ShowAllUsersUrl);
+            // responseString looks like list[]=user1&list[]=user2
+
+            if (responseString.ToLower().Contains("html"))
+                throw new DirectAdminClientException("Wrong password or not enough rights");
+
+            foreach (var item in responseString.Split('&'))
+            {
+                var splitted = item.Split('=');
+                if (splitted.Length == 2)
+                    result.Add(splitted[1]);
+            }
+
+            return result;
         }
         #endregion
 

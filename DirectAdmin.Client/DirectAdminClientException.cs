@@ -15,5 +15,7 @@ namespace DirectAdmin.Client
                Data.Add(key, responseCollection[key]);
            }
         }
+
+        public DirectAdminClientException(string message) : base(message) { }
     }
 }
