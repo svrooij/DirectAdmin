@@ -5,13 +5,13 @@
     <version>$version$</version>
     <title>$title$</title>
     <authors>Stephan van Rooij</authors>
-    <owners>Fontys Hogeschool ICT</owners>
+    <owners>Stephan van Rooij</owners>
     <licenseUrl>https://github.com/svrooij/DirectAdmin/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/svrooij/DirectAdmin</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <releaseNotes>Added comments to all public methodes/properties</releaseNotes>
     <copyright>Copyright 2015</copyright>
-    <tags>Tag1 Tag2</tags>
+    <tags>DirectAdmin API</tags>
   </metadata>
 </package>

@@ -27,6 +27,7 @@ namespace DirectAdmin.Client
         /// <summary>
         /// Reset a password of a certain user.
         /// </summary>
+		/// <remarks>Make sure you can access CMD_API_USER_PASSWD http://www.directadmin.com/features.php?id=736 </remarks>
         /// <param name="username">Username of the user (you'll have to be an admin or a reseller)</param>
         /// <param name="password">The new password, make sure it meets the directadmin password requirements</param>
         public async Task ResetPasswordForUser(string username, string password)
@@ -41,7 +42,8 @@ namespace DirectAdmin.Client
         }
         /// <summary>
         /// Create a new hosting user
-        /// </summary>
+		/// </summary>
+		/// <remarks>Make sure you can access CMD_API_ACCOUNT_USER</remarks>
         /// <param name="userOptions">Request object with all the user options</param>
         public async Task CreateUser(RequestOptions.CreateUserOptions userOptions)
         {
@@ -50,7 +52,8 @@ namespace DirectAdmin.Client
         }
         /// <summary>
         /// Fetch a list of all users
-        /// </summary>
+		/// </summary>
+		/// <remarks>Make sure you can access CMD_API_SHOW_ALL_USERS</remarks>
         /// <returns>List of usernames</returns>
         public async Task<List<string>> ListUsers()
         {
@@ -86,6 +89,7 @@ namespace DirectAdmin.Client
 
         public void Dispose()
         {
+			options = null;
             if (client != null)
             {
                 client.Dispose();
