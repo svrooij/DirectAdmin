@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DirectAdmin.Client.RequestOptions
 {
+	/// <summary>
+	/// Create user options.
+	/// </summary>
     public class CreateUserOptions
     {
 		/// <summary>
@@ -49,7 +52,7 @@ namespace DirectAdmin.Client.RequestOptions
 		/// <value>The username owner.</value>
 		/// <remarks>Use if you want to place this new user under an other admin/reseller then yourself.</remarks>
         public string UsernameOwner { get; set; }
-        public List<KeyValuePair<string, string>> GetRequestData()
+        internal List<KeyValuePair<string, string>> GetRequestData()
         {
             var r = new List<KeyValuePair<string, string>>();
             r.Add(new KeyValuePair<string, string>("action", "create"));

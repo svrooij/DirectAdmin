@@ -7,10 +7,17 @@ using System.Net.Http;
 
 namespace DirectAdmin.Client
 {
+	/// <summary>
+	/// Direct admin client.
+	/// </summary>
     public class DirectAdminClient : IDisposable
     {
         DirectAdminClientOptions options;
         HttpClient client;
+		/// <summary>
+		/// Initializes a new instance of the <see cref="DirectAdmin.Client.DirectAdminClient"/> class.
+		/// </summary>
+		/// <param name="options">Client options <see cref="DirectAdmin.Client.DirectAdminClientOptions"/></param>
         public DirectAdminClient(DirectAdminClientOptions options)
         {
             this.options = options;
@@ -76,7 +83,11 @@ namespace DirectAdmin.Client
         #endregion
 
 
-
+		/// <summary>
+		/// Checks the response.
+		/// </summary>
+		/// <param name="response">Response.</param>
+		/// <remarks>The DirectAdmin API is not a really REST API. So we have to do some tricks to check for errors.</remarks>
         private async Task CheckResponse(HttpResponseMessage response)
         {
             var responseString = await response.Content.ReadAsStringAsync();
@@ -87,6 +98,14 @@ namespace DirectAdmin.Client
                 throw new DirectAdminClientException(responseCollection);
         }
 
+		/// <summary>
+		/// Releases all resource used by the <see cref="DirectAdmin.Client.DirectAdminClient"/> object.
+		/// </summary>
+		/// <remarks>Call <see cref="Dispose"/> when you are finished using the <see cref="DirectAdmin.Client.DirectAdminClient"/>. The
+		/// <see cref="Dispose"/> method leaves the <see cref="DirectAdmin.Client.DirectAdminClient"/> in an unusable state.
+		/// After calling <see cref="Dispose"/>, you must release all references to the
+		/// <see cref="DirectAdmin.Client.DirectAdminClient"/> so the garbage collector can reclaim the memory that the
+		/// <see cref="DirectAdmin.Client.DirectAdminClient"/> was occupying.</remarks>
         public void Dispose()
         {
 			options = null;

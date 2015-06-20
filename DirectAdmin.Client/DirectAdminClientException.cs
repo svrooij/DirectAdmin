@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace DirectAdmin.Client
 {
+	/// <summary>
+	/// Direct admin client exception.
+	/// </summary>
     public class DirectAdminClientException : Exception
     {
+		/// <summary>
+		/// Initializes a new instance of the <see cref="DirectAdmin.Client.DirectAdminClientException"/> class.
+		/// </summary>
+		/// <param name="responseCollection">Response collection.</param>
         public DirectAdminClientException(System.Collections.Specialized.NameValueCollection responseCollection)
             : base(responseCollection.AllKeys.Contains("text") ? responseCollection["text"] : "Unknown error")
         {
@@ -16,6 +23,10 @@ namespace DirectAdmin.Client
            }
         }
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="DirectAdmin.Client.DirectAdminClientException"/> class.
+		/// </summary>
+		/// <param name="message">Message.</param>
         public DirectAdminClientException(string message) : base(message) { }
     }
 }

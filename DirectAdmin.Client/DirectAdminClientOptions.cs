@@ -7,6 +7,9 @@ using System.Net.Http;
 
 namespace DirectAdmin.Client
 {
+	/// <summary>
+	/// Direct admin client options.
+	/// </summary>
     public class DirectAdminClientOptions
     {
 		/// <summary>

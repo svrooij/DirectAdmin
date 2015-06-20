@@ -3,6 +3,8 @@ Control your directadmin users from your C# application
 
 ## Getting started
 
+Install DirectAdmin.Client with nuget. PackageManager `PM> Install-Package DirectAdmin.Client`
+
 ```C#
 using DirectAdmin.Client;
 // If you will be creating new users
