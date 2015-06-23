@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A1636C
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectAdmin.Tests", "DirectAdmin.Tests\DirectAdmin.Tests.csproj", "{0F9C266E-1B77-4EC8-8284-C5E678D72EC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +24,10 @@ Global
 		{1F719906-13FD-48E9-B4B9-38B1FB22D3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F719906-13FD-48E9-B4B9-38B1FB22D3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F719906-13FD-48E9-B4B9-38B1FB22D3D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F9C266E-1B77-4EC8-8284-C5E678D72EC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F9C266E-1B77-4EC8-8284-C5E678D72EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F9C266E-1B77-4EC8-8284-C5E678D72EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F9C266E-1B77-4EC8-8284-C5E678D72EC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

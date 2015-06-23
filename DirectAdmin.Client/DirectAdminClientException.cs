@@ -28,5 +28,10 @@ namespace DirectAdmin.Client
 		/// </summary>
 		/// <param name="message">Message.</param>
         public DirectAdminClientException(string message) : base(message) { }
+
+        /// <summary>
+        /// This property will be set, if the call is correct, but the feature may not be used with a demo account.
+        /// </summary>
+        public Boolean NotInDemo { get; set; }
     }
 }

@@ -28,6 +28,7 @@ namespace DirectAdmin.Client
         const string SetPasswordUrl = "CMD_API_USER_PASSWD";
         const string CreateUserUrl = "CMD_API_ACCOUNT_USER";
         const string ShowAllUsersUrl = "CMD_API_SHOW_ALL_USERS";
+        const string SelectUsersUrl = "CMD_API_SELECT_USERS";
         #endregion
 
         #region Client methodes
@@ -57,6 +58,23 @@ namespace DirectAdmin.Client
             var response = await client.PostAsync(CreateUserUrl, new FormUrlEncodedContent(userOptions.GetRequestData()));
             await CheckResponse(response);
         }
+
+        /// <summary>
+        /// Delete an user account
+        /// </summary>
+        /// <param name="username">The name of the user to delete.</param>
+        /// <remarks>Only reseller/admin accounts can call this action</remarks>
+        public async Task DeleteUser(string username)
+        {
+            var data = new List<KeyValuePair<string, string>>();
+            data.Add(new KeyValuePair<string, string>("confirmed", "Confirm"));
+            data.Add(new KeyValuePair<string, string>("delete", "yes"));
+            data.Add(new KeyValuePair<string, string>("select0", username));
+
+            var response = await client.PostAsync(SelectUsersUrl, new FormUrlEncodedContent(data));
+            await CheckResponse(response);
+        }
+
         /// <summary>
         /// Fetch a list of all users
 		/// </summary>
@@ -91,6 +109,9 @@ namespace DirectAdmin.Client
         private async Task CheckResponse(HttpResponseMessage response)
         {
             var responseString = await response.Content.ReadAsStringAsync();
+            if (responseString == "list[]=not&list[]=available&list[]=in&list[]=the&list[]=demo" || responseString.Contains("That feature has been disabled for the demo"))
+                throw new DirectAdminClientException("Not available in the demo") { NotInDemo = true };
+            
             var responseCollection = System.Web.HttpUtility.ParseQueryString(responseString);
             if (responseCollection.AllKeys.Contains("error") && Convert.ToInt32(responseCollection["error"]) == 0)
                 return;

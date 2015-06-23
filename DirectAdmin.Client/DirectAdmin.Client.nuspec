@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/svrooij/DirectAdmin</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Added comments to all public methodes/properties</releaseNotes>
+    <releaseNotes>Added posibility to delete a user.</releaseNotes>
     <copyright>Copyright 2015</copyright>
     <tags>DirectAdmin API</tags>
   </metadata>
