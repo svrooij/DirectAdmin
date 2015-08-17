@@ -32,6 +32,7 @@ namespace DirectAdmin.Client
         #endregion
 
         #region Client methodes
+        [Obsolete("This methode doesnt seem to work anymore since DirectAdmin version 1.483")]
         /// <summary>
         /// Reset a password of a certain user.
         /// </summary>
@@ -111,12 +112,16 @@ namespace DirectAdmin.Client
             var responseString = await response.Content.ReadAsStringAsync();
             if (responseString == "list[]=not&list[]=available&list[]=in&list[]=the&list[]=demo" || responseString.Contains("That feature has been disabled for the demo"))
                 throw new DirectAdminClientException("Not available in the demo") { NotInDemo = true };
+            else if ((response.Headers.Contains("X-DirectAdmin") && response.Headers.GetValues("X-DirectAdmin").Contains("unauthorized")) || responseString.Contains("<form action=\"/CMD_LOGIN\" method=\"POST\" name=\"form\">"))
+                throw new DirectAdminClientException("No access to method");
             
             var responseCollection = System.Web.HttpUtility.ParseQueryString(responseString);
             if (responseCollection.AllKeys.Contains("error") && Convert.ToInt32(responseCollection["error"]) == 0)
                 return;
             else
                 throw new DirectAdminClientException(responseCollection);
+
+            
         }
 
 		/// <summary>

@@ -25,6 +25,7 @@ using(var client = new DirectAdminClient(
     var users = await client.ListUsers();
 
     // Set a password for a user
+    // This method seems broken, from version 1.483 (please contact me if this method still works for you)
     await client.ResetPasswordForUser("userName","newPassword");
 
     // Create a new user
