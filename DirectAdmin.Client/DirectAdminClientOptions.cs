@@ -42,7 +42,11 @@ namespace DirectAdmin.Client
 
         internal HttpClient CreateHttpClient()
         {
-            var client = new HttpClient(new HttpClientHandler());
+            var client = new HttpClient(new HttpClientHandler() {
+                // We should disable cookies, because DirectAdmin sends out faulty cookies on the list users request.
+                // This seems a bug, but this is a great workaround.
+                UseCookies = false
+            });
             string credentials = String.Format("{0}:{1}", Username, Password);
             byte[] bytes = Encoding.ASCII.GetBytes(credentials);
             string base64 = Convert.ToBase64String(bytes);

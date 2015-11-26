@@ -32,7 +32,6 @@ namespace DirectAdmin.Client
         #endregion
 
         #region Client methodes
-        [Obsolete("This methode doesnt seem to work anymore since DirectAdmin version 1.483")]
         /// <summary>
         /// Reset a password of a certain user.
         /// </summary>

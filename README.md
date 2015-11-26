@@ -1,13 +1,15 @@
 # DirectAdmin
-Control your directadmin users from your C# application
+Control your DirectAdmin users from your C# application
+
+[![Build status](https://ci.appveyor.com/api/projects/status/u6gtqri2fie11768?svg=true)](https://ci.appveyor.com/project/svrooij/directadmin)
 
 ## Getting started
 
-Install DirectAdmin.Client with nuget. PackageManager `PM> Install-Package DirectAdmin.Client`
+Install DirectAdmin.Client with NuGet. PackageManager `PM> Install-Package DirectAdmin.Client`
 
 ```C#
 using DirectAdmin.Client;
-// If you will be creating new users
+// If you will be creating new users, you should also add DirectAdmin.Client.RequestOptions
 using DirectAdmin.Client.RequestOptions;
 
 ...
@@ -18,14 +20,13 @@ using(var client = new DirectAdminClient(
       Username = "yourUsername",
       Password = "yourPassword", // Could also be an API key, see below
       Port = 2222, // This is the default port number
-      UseHttps = false // Set to true if your directadmin installation is protected with an SSL certificate/
+      UseHttps = false // Set to true if your directadmin installation is protected with an SSL certificate
     }
   )){
     // List all users
     var users = await client.ListUsers();
 
     // Set a password for a user
-    // This method seems broken, from version 1.483 (please contact me if this method still works for you)
     await client.ResetPasswordForUser("userName","newPassword");
 
     // Create a new user
@@ -40,6 +41,10 @@ using(var client = new DirectAdminClient(
     });
   }
 ```
+
+## Use an API key for **improved security**!
+Directadmin has an option to create a (restricted) [API key](http://help.directadmin.com/item.php?id=523). This can be used instead of the ``Password`` in the ``DirectAdminClientOptions``.
+To create an API key go to ``/CMD_LOGIN_KEYS`` in your DirectAdmin installation. Or Select ``User Level`` and click ``Login Keys``
 
 ## Issues or feature requests?
 If you found an issue with the software, please visit the [github repo](https://github.com/svrooij/DirectAdmin) and create an issue.
