@@ -1,17 +1,24 @@
-<?xml version="1.0"?>
-<package >
-  <metadata>
-    <id>DirectAdmin.Client</id>
-    <version>$version$</version>
-    <title>DirectAdmin.Client</title>
-    <authors>Stephan van Rooij</authors>
-    <owners>Stephan van Rooij</owners>
-    <licenseUrl>https://github.com/svrooij/DirectAdmin/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/svrooij/DirectAdmin</projectUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>This client lets you control DirectAdmin from your C# application.</description>
-    <releaseNotes>Added posibility to delete a user.</releaseNotes>
-    <copyright>Copyright 2017</copyright>
-    <tags>DirectAdmin API</tags>
-  </metadata>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+    <metadata>
+        <id>DirectAdmin.Client</id>
+        <version>$version$</version>
+        <title>DirectAdmin.Client</title>
+        <authors>Stephan van Rooij</authors>
+        <owners>Stephan van Rooij</owners>
+        <licenseUrl>https://github.com/svrooij/DirectAdmin/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/svrooij/DirectAdmin</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>This client lets you control DirectAdmin from your C# application.</description>
+        <releaseNotes>Added posibility to delete a user.</releaseNotes>
+        <copyright>Copyright 2017</copyright>
+        <tags>DirectAdmin API</tags>
+        <dependencies>
+            <dependency id="System.Net.Http" version="4.3.2" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\Release\DirectAdmin.Client.dll" target="lib\net452\DirectAdmin.Client.dll" />
+        <file src="bin\Release\DirectAdmin.Client.xml" target="lib\net452\DirectAdmin.Client.xml" />
+    </files>
 </package>
