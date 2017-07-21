@@ -16,12 +16,12 @@ namespace DirectAdmin.Client
         /// <summary>Default value, will not work on newer versions of DA</summary>
         NotSpecified = 0,
         /// <summary>Reset everything</summary>
-        All = 2 & 4 & 8,
+        All = System | Ftp | Database,
         /// <summary>DirectAdmin account</summary>
-        System = 2,
+        System = 1,
         /// <summary>FTP account</summary>
-        Ftp = 4,
+        Ftp = 2,
         /// <summary>Mysql database account</summary>
-        Database = 8
+        Database = 4
     }
 }
