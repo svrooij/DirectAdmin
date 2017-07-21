@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
+    <id>DirectAdmin.Client</id>
+
+    <title>DirectAdmin.Client</title>
     <authors>Stephan van Rooij</authors>
     <owners>Stephan van Rooij</owners>
     <licenseUrl>https://github.com/svrooij/DirectAdmin/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/svrooij/DirectAdmin</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>This client lets you control DirectAdmin from your C# application.</description>
     <releaseNotes>Added posibility to delete a user.</releaseNotes>
-    <copyright>Copyright 2015</copyright>
+    <copyright>Copyright 2017</copyright>
     <tags>DirectAdmin API</tags>
   </metadata>
 </package>
