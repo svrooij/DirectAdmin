@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>DirectAdmin.Client</id>
-
+    <version>$version$</version>
     <title>DirectAdmin.Client</title>
     <authors>Stephan van Rooij</authors>
     <owners>Stephan van Rooij</owners>
