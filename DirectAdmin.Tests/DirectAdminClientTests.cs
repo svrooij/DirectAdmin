@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DirectAdmin.Tests
 {
     using DirectAdmin.Client;
+    using System.Net.Http;
     using System.Threading.Tasks;
     [TestClass]
     public class DirectAdminClientTests
@@ -27,16 +28,21 @@ namespace DirectAdmin.Tests
                 try
                 {
                     var users = await client.ListUsers();
-                    
+
                 }
                 catch (DirectAdminClientException e)
                 {
                     // This test should give an exception!
                     
-                }
-                
 
-                
+                } catch (HttpRequestException e)
+                {
+                    // This test should give an exception!
+                    Console.WriteLine(e.Message);
+                }
+
+
+
             }
         }
         [TestMethod]

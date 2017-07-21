@@ -21,4 +21,3 @@ artifacts:
 after_build:
   - cmd: ECHO nuget pack DirectAdmin.Client\DirectAdmin.Client.nuspec -version "%GitVersion_NuGetVersion%" -prop "target=%CONFIGURATION%"
   - cmd: nuget pack DirectAdmin.Client\DirectAdmin.Client.nuspec -version "%GitVersion_NuGetVersion%" -prop "target=%CONFIGURATION%"
-  - cmd: appveyor PushArtifact "DirectAdmin.Client.%GitVersion_NuGetVersion%.nupkg"

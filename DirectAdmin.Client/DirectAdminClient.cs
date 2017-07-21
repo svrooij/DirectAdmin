@@ -38,12 +38,22 @@ namespace DirectAdmin.Client
 		/// <remarks>Make sure you can access CMD_API_USER_PASSWD http://www.directadmin.com/features.php?id=736 </remarks>
         /// <param name="username">Username of the user (you'll have to be an admin or a reseller)</param>
         /// <param name="password">The new password, make sure it meets the directadmin password requirements</param>
-        public async Task ResetPasswordForUser(string username, string password)
+        /// <param name="kindToReset">The latest version of DirectAdmin requires you to specify which account you want to reset.</param>
+        public async Task ResetPasswordForUser(string username, string password,ResetPasswordKind kindToReset = ResetPasswordKind.NotSpecified)
         {
             var data = new List<KeyValuePair<string, string>>();
             data.Add(new KeyValuePair<string, string>("username", username));
             data.Add(new KeyValuePair<string, string>("passwd", password));
             data.Add(new KeyValuePair<string, string>("passwd2", password));
+
+            if (kindToReset == ResetPasswordKind.Database)
+                data.Add(new KeyValuePair<string, string>("database", "yes"));
+
+            if (kindToReset == ResetPasswordKind.Ftp)
+                data.Add(new KeyValuePair<string, string>("ftp", "yes"));
+
+            if (kindToReset == ResetPasswordKind.System)
+                data.Add(new KeyValuePair<string, string>("system", "yes"));
 
             var response = await client.PostAsync(SetPasswordUrl, new FormUrlEncodedContent(data));
             await CheckResponse(response);

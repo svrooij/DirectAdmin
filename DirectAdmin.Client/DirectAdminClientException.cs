@@ -18,9 +18,15 @@ namespace DirectAdmin.Client
         public DirectAdminClientException(System.Collections.Specialized.NameValueCollection responseCollection)
             : base(responseCollection.AllKeys.Contains("text") ? responseCollection["text"] : "Unknown error")
         {
-           foreach(var key in responseCollection.AllKeys){
-               Data.Add(key, responseCollection[key]);
-           }
+            if (responseCollection.Count > 0)
+            {
+                foreach (var key in responseCollection.AllKeys)
+                {
+                    var value = responseCollection[key];
+                    if(!string.IsNullOrEmpty(key) && value != null)
+                    Data.Add(key, value);
+                }
+            }
         }
 
 		/// <summary>
